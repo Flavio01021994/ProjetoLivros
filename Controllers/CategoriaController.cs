@@ -30,6 +30,37 @@ namespace ProjetoLivros.Controllers
             _repository.Cadatrar(categoria);
             return Created();
         }
-             
+
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            
+            var categoria = _repository.ListarPorId(id);
+
+            if (categoria == null) return NotFound();
+
+            return Ok(categoria);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, Categoria categoriaNova)
+        {
+            var categoriaAtualizada = _repository.Atualizar(id, categoriaNova);
+
+            if (categoriaAtualizada == null) return NotFound();
+
+            return Ok(categoriaAtualizada);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            var categoriaDeletada = _repository.Deletar(id);
+
+            if (categoriaDeletada == null) return NotFound();
+
+            return Ok(categoriaDeletada);
+        }
+
     }
 }

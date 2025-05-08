@@ -12,7 +12,7 @@ namespace ProjetoLivros.Interfaces
         void Cadatrar(Categoria categoria);
         Categoria? Atualizar(int id, Categoria categoria);
         Categoria? Deletar(int id);
-
+        object ListarPorId(int id);
     }
 }
 
